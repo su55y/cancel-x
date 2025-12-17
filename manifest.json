@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Cancel X",
+  "version": "0.1.0",
+  "description": "Redirect x.com links to xcancel.com",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "icons": {
+    "128": "icon.png"
+  }
+}
