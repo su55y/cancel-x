@@ -1,3 +1,4 @@
+const defaultHost = 'https://xcancel.com'
 document.addEventListener(
   'click',
   async function (e) {
@@ -5,10 +6,13 @@ document.addEventListener(
       "a[href^='https://x.com/'], a[href^='http://x.com/']"
     )
     if (!a) return
-    const href = a.getAttribute('href')
-    const path = href.replace(/^https?:\/\/x.com\//, '')
-    const target = 'https://xcancel.com/' + path
+
     e.preventDefault()
+
+    const { host } = await chrome.storage.local.get({ host: defaultHost })
+    const href = a.getAttribute('href')
+    const path = href.replace(/^https?:\/\/x.com/, '')
+    const target = host + path
     window.open(target, '_blank')
   },
   true
