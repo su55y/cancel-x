@@ -1,16 +1,16 @@
 {
   "manifest_version": 3,
   "name": "Cancel X",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Redirect x.com links to xcancel.com",
   "permissions": ["storage"],
   "options_ui": {
-    "page": "options.html",
+    "page": "pages/options.html",
     "open_in_tab": true
   },
   "action": {
     "default_title": "Cancel X Options",
-    "default_popup": "popup.html"
+    "default_popup": "pages/popup.html"
   },
   "content_scripts": [
     {
