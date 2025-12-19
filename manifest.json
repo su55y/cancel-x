@@ -21,5 +21,10 @@
   ],
   "icons": {
     "128": "icon.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "cancel-x@personal.org"
+    }
   }
 }
