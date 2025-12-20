@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const host = hostInput.value
     if (!host) return
     chrome.storage.local.set({ host }, () => {
-      statusDiv.textContent = 'Saved!'
+      statusDiv.textContent = 'saved!'
       statusDiv.style.visibility = 'visible'
       hostInput.blur()
       saveBtn.disabled = true

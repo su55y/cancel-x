@@ -3,13 +3,16 @@
 
 <head>
     <title>Cancel X Settings</title>
+    <link rel="stylesheet" href="options.css">
 </head>
 
 <body>
-    <h1>Cancel X Settings</h1>
-    <input id="hostInput" placeholder="redirect to ...">
-    <button id="saveBtn">Save</button>
-    <div id="statusDiv"></div>
+    <div id="root">
+        <label id="hostInputLabel" for="hostInput">host:</label>
+        <input id="hostInput" type="text" spellcheck="false" title="target host" placeholder="redirect to ...">
+        <button id="saveBtn">save</button>
+        <div id="statusDiv"></div>
+    </div>
 
     <script src="options.js"></script>
 </body>

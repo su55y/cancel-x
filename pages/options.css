@@ -1,0 +1,46 @@
+:root {
+    --b: #000;
+    --w: #aaa;
+    --wb: #bbb;
+}
+
+html {
+    background: var(--w);
+    color: var(--b);
+    filter: sepia(0.5);
+    height: -webkit-fill-available;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+div#root {
+    padding: 20px;
+}
+
+label#hostInputLabel {
+    font-size: 32pt;
+}
+
+input#hostInput,
+button#saveBtn {
+    font-size: 32pt;
+    padding-block: 2px;
+    background: var(--wb);
+}
+
+input#hostInput:focus {
+    outline-style: solid;
+}
+
+input#hostInput:focus,
+button#saveBtn:not([disabled]):hover {
+    filter: sepia(0.25) saturate(1);
+}
+
+div#statusDiv {
+    color: green;
+    font-size: 24pt;
+}
