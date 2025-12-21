@@ -25,7 +25,7 @@ label#hostInputLabel {
 }
 
 input#hostInput,
-button#saveBtn {
+button {
     font-size: 32pt;
     padding-block: 2px;
     background: var(--wb);
@@ -36,7 +36,7 @@ input#hostInput:focus {
 }
 
 input#hostInput:focus,
-button#saveBtn:not([disabled]):hover {
+button:not([disabled]):hover {
     filter: sepia(0.25) saturate(1);
 }
 
