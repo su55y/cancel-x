@@ -27,12 +27,26 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   hostInput.onkeyup = hostInput.oninput
 
+  const parseUrl = (s) => {
+    try {
+      const u = new URL(s)
+      return { host: `${u.protocol}//${u.hostname}`, error: null }
+    } catch (e) {
+      return { host: s, error: e.message }
+    }
+  }
+
   /** @type {HTMLButtonElement} */
   const saveBtn = window.saveBtn || document.getElementById('saveBtn')
   saveBtn.disabled = true
   saveBtn.onclick = () => {
-    const host = hostInput.value
+    const { host, error } = parseUrl(hostInput.value)
     if (!host) return
+    if (error) {
+      statusDiv.textContent = error
+      statusDiv.style.visibility = 'visible'
+      return
+    }
     chrome.storage.local.set({ host }, () => {
       hostInput.blur()
       saveBtn.disabled = true
