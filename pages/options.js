@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const resetStatusDiv = () => {
     statusDiv.innerText = ''
     statusDiv.style.visibility = 'invisible'
+    statusDiv.className = ''
   }
   resetStatusDiv()
 
@@ -45,6 +46,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (error) {
       statusDiv.textContent = error
       statusDiv.style.visibility = 'visible'
+      statusDiv.className = 'status-error'
       return
     }
     chrome.storage.local.set({ host }, () => {
@@ -52,6 +54,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       saveBtn.disabled = true
       statusDiv.textContent = 'saved!'
       statusDiv.style.visibility = 'visible'
+      statusDiv.className = 'status-ok'
     })
   }
 

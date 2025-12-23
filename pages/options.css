@@ -41,6 +41,13 @@ button:not([disabled]):hover {
 }
 
 div#statusDiv {
-    color: green;
     font-size: 24pt;
+}
+
+div#statusDiv.status-ok {
+    color: green;
+}
+
+div#statusDiv.status-error {
+    color: red;
 }
