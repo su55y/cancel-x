@@ -3,6 +3,11 @@ const defaultHost = 'https://xcancel.com'
 document.addEventListener('DOMContentLoaded', async () => {
   /** @type {HTMLDivElement} */
   const statusDiv = window.statusDiv || document.getElementById('statusDiv')
+  const showStatusDiv = ({ msg, error = false }) => {
+    statusDiv.innerText = msg
+    statusDiv.style.visibility = 'visible'
+    statusDiv.className = 'status-' + (error ? 'error' : 'ok')
+  }
   const resetStatusDiv = () => {
     statusDiv.innerText = ''
     statusDiv.style.visibility = 'invisible'
@@ -44,17 +49,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     const { host, error } = parseUrl(hostInput.value)
     if (!host) return
     if (error) {
-      statusDiv.textContent = error
-      statusDiv.style.visibility = 'visible'
-      statusDiv.className = 'status-error'
+      showStatusDiv({ msg: error, error: true })
       return
     }
     chrome.storage.local.set({ host }, () => {
+      hostInput.value = host
       hostInput.blur()
+      resetBtn.disabled = host === defaultHost
       saveBtn.disabled = true
-      statusDiv.textContent = 'saved!'
-      statusDiv.style.visibility = 'visible'
-      statusDiv.className = 'status-ok'
+      showStatusDiv({ msg: 'saved!' })
     })
   }
 
