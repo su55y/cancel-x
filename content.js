@@ -3,7 +3,7 @@ document.addEventListener(
   'click',
   async function (e) {
     const a = e.target.closest(
-      "a[href^='https://x.com/'], a[href^='http://x.com/']"
+      "a[href^='https://x.com/'], a[href^='http://x.com/'], a[href^='https://twitter.com/'], a[href^='http://twitter.com/']"
     )
     if (!a) return
 
