@@ -36,7 +36,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   const parseUrl = (s) => {
     try {
       const u = new URL(s)
-      return { host: `${u.protocol}//${u.hostname}`, error: null }
+      console.log(u)
+      if (!u.host.match(/^\w[\w\-\.]+(?:\:\d+)?$/) || !u.host.includes('.'))
+        throw Error(`Invalid host '${u.host}'`)
+      return {
+        host: (u.origin + u.pathname).replace(/\/*$/, ''),
+        error: null,
+      }
     } catch (e) {
       return { host: s, error: e.message }
     }
