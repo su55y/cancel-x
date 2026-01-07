@@ -9,11 +9,16 @@ document.addEventListener(
 
     e.preventDefault()
 
-    const { host } = await chrome.storage.local.get({ host: defaultHost })
-    const href = a.getAttribute('href')
-    const path = href.replace(/^https?:\/\/x.com/, '')
-    const target = host + path
-    window.open(target, '_blank')
+    try {
+      const { host } = await chrome.storage.local.get({ host: defaultHost })
+      const href = a.getAttribute('href')
+      const url = new URL(href)
+      const target = host + url.pathname
+      window.open(target, '_blank')
+    } catch (e) {
+      console.error(e)
+      return
+    }
   },
   true
 )
