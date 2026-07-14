@@ -1,4 +1,4 @@
-const defaultHost = 'https://xcancel.com'
+const defaultHost = 'https://nitter.net'
 
 document.addEventListener('DOMContentLoaded', async () => {
   /** @type {HTMLDivElement} */
@@ -34,11 +34,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   hostInput.onkeyup = hostInput.oninput
 
   const parseUrl = (s) => {
+    if (s.includes('localhost')) return { host: s, error: null }
+    if (!s.startsWith('http')) s = 'https://' + s
+
     try {
       const u = new URL(s)
-      console.log(u)
       if (!u.host.match(/^\w[\w\-\.]+(?:\:\d+)?$/) || !u.host.includes('.'))
         throw Error(`Invalid host '${u.host}' (url=${s})`)
+
       return {
         host: (u.origin + u.pathname).replace(/\/*$/, ''),
         error: null,

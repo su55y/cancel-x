@@ -1,4 +1,4 @@
-const defaultHost = 'https://xcancel.com',
+const defaultHost = 'https://nitter.net',
   targetQuery =
     "a[href^='https://x.com/'], a[href^='http://x.com/'], a[href^='https://twitter.com/'], a[href^='http://twitter.com/']"
 

@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Cancel X",
-  "version": "0.1.9",
-  "description": "Redirect x.com links to xcancel.com",
+  "version": "0.2.0",
+  "description": "Redirect x.com links to nitter instance",
   "permissions": ["storage"],
   "options_ui": {
     "page": "pages/options.html",
